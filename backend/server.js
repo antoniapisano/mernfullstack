@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const diaryRoutes = require("../backend/routes/diary.js")
+const userRoutes = require("../backend/routes/user.js")
 
 const app = express()
 
@@ -12,6 +13,7 @@ app.use ((req, res, next) => {
 app.use(express.json())
 
 app.use("/api/diary", diaryRoutes)
+app.use("/api/user", userRoutes)
 
 app.get('/', (req, res) => {
     res.json({mssg: 'tiger'})
