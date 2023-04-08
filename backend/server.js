@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
-const diaryRoutes = require("../backend/routes/diary.js")
-const userRoutes = require("../backend/routes/user.js")
+const diaryRoutes = require("./routes/diaryRoutes.js")
+const userRoutes = require("./routes/userRoutes.js")
 
 const app = express()
 
