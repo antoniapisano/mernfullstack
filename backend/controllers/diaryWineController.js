@@ -2,11 +2,27 @@ const asyncHandler = require('express-async-handler')
 const Wines = require('../models/winesDiaryModel.js')
 
 const addWine = asyncHandler(async (req, res) => {
-  const { user, name_of_wine } = req.body;
+  const {   user, 
+            name_of_wine, 
+            vintage, 
+            price, 
+            place_of_purchase, 
+            primary_aromas, 
+            secondary_aromas, 
+            tertiary_aromas,
+            description } = req.body;
 
-  if (!name_of_wine) {
+  if (  !user || 
+        !name_of_wine || 
+        !vintage || 
+        !price || 
+        !place_of_purchase ||
+        !primary_aromas ||
+        !secondary_aromas ||
+        !tertiary_aromas ||
+        !description ) {
     res.status(400);
-    throw new Error("Please at least enter the name of the wine!");
+    throw new Error("Please fill in all fields but write unknown if not known");
   }
 
   const newWine = await Wines.create({name_of_wine});

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const faveSchema = mongoose.Schema(
+const wineSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -45,4 +45,4 @@ const faveSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Favorites', faveSchema);
+module.exports = mongoose.model('Wines', wineSchema);
