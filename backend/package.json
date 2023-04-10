@@ -76,6 +76,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
