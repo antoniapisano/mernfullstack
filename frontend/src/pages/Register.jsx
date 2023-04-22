@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react'
-import { FaUser } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { FaUser } from 'react-icons/fa'
 import { register, reset } from '../features/auth/authSlice'
-import Spinner from '../components/Spinner.jsx'
+import Spinner from '../components/Spinner'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,6 @@ function Register() {
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
-
 
   useEffect(() => {
     if (isError) {
@@ -42,7 +41,7 @@ function Register() {
       [e.target.name]: e.target.value,
     }))
   }
-  
+
   const onSubmit = (e) => {
     e.preventDefault()
 
@@ -64,7 +63,7 @@ function Register() {
   }
 
   return (
-  <>
+    <>
       <section className='heading'>
         <h1>
           <FaUser /> Register
@@ -125,7 +124,7 @@ function Register() {
           </div>
         </form>
       </section>
-   </>
+    </>
   )
 }
 
