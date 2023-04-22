@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 const diaryRoutes = require("./routes/diaryRoutes.js")
 const userRoutes = require("./routes/userRoutes.js")
 const { errorHandler } = require("./middleware/errorMiddleware.js")
@@ -15,6 +16,7 @@ app.use ((req, res, next) => {
 })
 
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(errorHandler);
 
