@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/diary/'
+const API_URL = 'api/diary/'
 
 // Create new entry
 const createEntry = async (diaryData, token) => {

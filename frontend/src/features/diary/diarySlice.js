@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import diaryService from './diaryService'
 
 const initialState = {
-    goals: [],
+    diary: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -10,7 +10,7 @@ const initialState = {
   }
 
   export const createEntry = createAsyncThunk(
-  'goals/create',
+  'diary/create',
   async (diaryData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
@@ -32,7 +32,23 @@ const initialState = {
     initialState,
     reducers: {
       reset: (state) => initialState,
-    }
+    },
+    extraReducers: (builder) => {
+        builder
+          .addCase(createEntry.pending, (state) => {
+            state.isLoading = true
+          })
+          .addCase(createEntry.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.diaries.push(action.payload)
+          })
+          .addCase(createEntry.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+          })
+        },
   })
 
 
