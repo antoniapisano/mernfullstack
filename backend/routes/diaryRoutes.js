@@ -5,10 +5,9 @@ const { addWine, getWine, removeWine, editWine } = require('../controllers/diary
 const { addSpirit, getSpirit, removeSpirit, editSpirit } = require('../controllers/diarySpiritController.js')
 const { addOther, getOther, removeOther, editOther } = require('../controllers/diaryOtherController.js')
 
-//test route for initial frontendbackend
-router.post('/',  addWine)
 
 //later routes
+router.post('/wine',  addWine)
 router.get('/wine', protect, getWine)
 router.delete('/wine/:id', protect, removeWine)
 router.put('/wine/:id', protect, editWine)

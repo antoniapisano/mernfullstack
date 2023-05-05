@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
+const testDiaryRoutes = require("./routes/testDiaryRoutes.js")
 const diaryRoutes = require("./routes/diaryRoutes.js")
 const userRoutes = require("./routes/userRoutes.js")
 const { errorHandler } = require("./middleware/errorMiddleware.js")
@@ -20,8 +21,9 @@ app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(errorHandler);
 
-app.use("/api/diary", diaryRoutes)
+app.use("/api/diary", diaryRoutes, testDiaryRoutes)
 app.use("/api/user", userRoutes)
+
 
 app.get('/', asyncHandler(async (req, res) => {
     res.status(200).json({message: "Welcome to the wine notes app!"})
