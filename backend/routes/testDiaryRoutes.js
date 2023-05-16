@@ -8,3 +8,5 @@ router.post('/',  protect, setDiary)
 router.get('/', protect, getDiary)
 router.delete('/:id', protect, removeDiary)
 router.put('/:id', protect, updateDiary)
+
+module.exports = router

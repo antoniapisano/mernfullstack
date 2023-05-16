@@ -62,7 +62,7 @@ const updateDiary = asyncHandler(async (req, res) => {
 // @desc    Delete goal
 // @route   DELETE /api/goals/:id
 // @access  Private
-const deleteDiary = asyncHandler(async (req, res) => {
+const removeDiary = asyncHandler(async (req, res) => {
   const diary = await Diary.findById(req.params.id)
 
   if (!Diary) {
@@ -91,7 +91,7 @@ module.exports = {
   getDiary,
   setDiary,
   updateDiary,
-  deleteDiary,
+  removeDiary,
 }
 
 
