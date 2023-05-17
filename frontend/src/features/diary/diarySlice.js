@@ -41,7 +41,7 @@ const initialState = {
           .addCase(createEntry.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.diaries.push(action.payload)
+            state.diary.push(action.payload)
           })
           .addCase(createEntry.rejected, (state, action) => {
             state.isLoading = false
