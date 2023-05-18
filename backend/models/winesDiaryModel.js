@@ -12,20 +12,20 @@ const wineSchema = mongoose.Schema(
     },
     vintage: {
       type: String,
-      require: false,
+      require: true,
     },
     price: {
       type: String,
-      require: false,
+      require: true,
     },
 
     place_of_purchase: {
       type: String,
-      require: false,
+      require: true,
     },
     primary_aromas: {
         type: String,
-        require: false,
+        require: true,
       },
     secondary_aromas: {
         type: String,
@@ -33,11 +33,11 @@ const wineSchema = mongoose.Schema(
       },  
     tertiary_aromas: {
         type: String,
-        require: false,
+        require: true,
       },
     description: {
         type: String,
-        require: false,
+        require: true,
       },
   },
   {
